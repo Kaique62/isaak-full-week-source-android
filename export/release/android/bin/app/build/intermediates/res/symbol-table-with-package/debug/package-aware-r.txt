@@ -1,0 +1,3 @@
+com.kadeengine.vsisaak
+drawable icon
+drawable ouya_icon

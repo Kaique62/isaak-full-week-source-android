@@ -1,0 +1,114 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:1-37:12
+MERGED from [:deps:extension-api] D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\deps\extension-api\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:1-37:12
+	package
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:70-102
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:127-156
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:103-126
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+	android:installLocation
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:2:157-187
+uses-feature#0x00020000
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:4:2-75
+	android:glEsVersion
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:4:16-48
+	android:required
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:4:49-72
+uses-feature#android.hardware.touchscreen
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:5:2-87
+	android:required
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:5:60-84
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:5:16-59
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:7:2-65
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:7:19-62
+uses-permission#android.permission.INTERNET
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:8:2-64
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:8:19-61
+uses-permission#android.permission.VIBRATE
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:9:2-63
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:9:19-60
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:10:2-76
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:10:19-73
+uses-sdk
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:13:2-70
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:13:2-70
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:13:2-70
+MERGED from [:deps:extension-api] D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\deps\extension-api\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-43
+MERGED from [:deps:extension-api] D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\deps\extension-api\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-43
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:13:2-70
+INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:13:2-70
+	android:targetSdkVersion
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:13:39-68
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:13:12-38
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+		INJECTED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml
+application
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:15:2-35:16
+	android:label
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:15:15-44
+	android:hardwareAccelerated
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:15:162-196
+	android:icon
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:15:46-75
+	android:allowBackup
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:15:76-102
+	android:theme
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:15:103-161
+meta-data#SDL_ENV.SDL_IOS_ORIENTATIONS
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:20:3-107
+	android:value
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:20:58-104
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:20:14-57
+activity#com.kadeengine.vsisaak.MainActivity
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:23:3-33:14
+	android:screenOrientation
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:23:178-221
+	android:label
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:23:73-102
+	android:launchMode
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:23:41-72
+	android:configChanges
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:23:103-177
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:23:13-40
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER+category:name:tv.ouya.intent.category.GAME
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:25:4-31:20
+action#android.intent.action.MAIN
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:27:5-57
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:27:13-54
+category#android.intent.category.LAUNCHER
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:28:5-65
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:28:15-62
+category#tv.ouya.intent.category.GAME
+ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:29:5-61
+	android:name
+		ADDED from D:\modding stuff\Sources\isaak-full-week-source\isaak-full-week-source\export\release\android\bin\app\src\main\AndroidManifest.xml:29:15-58
