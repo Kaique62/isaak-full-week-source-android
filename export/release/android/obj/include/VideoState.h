@@ -36,13 +36,13 @@ class HXCPP_CLASS_ATTRIBUTES VideoState_obj : public  ::MusicBeatState_obj
 	public:
 		enum { _hx_ClassId = 0x6e4dda76 };
 
-		void __construct(::String source, ::flixel::FlxState toTrans);
+		void __construct(::String source, ::flixel::FlxState toTrans,::hx::Null< int >  __o_frameSkipLimit,::hx::Null< bool >  __o_autopause);
 		inline void *operator new(size_t inSize, bool inContainer=true,const char *inName="VideoState")
 			{ return ::hx::Object::operator new(inSize,inContainer,inName); }
 		inline void *operator new(size_t inSize, int extra)
 			{ return ::hx::Object::operator new(inSize+extra,true,"VideoState"); }
-		static ::hx::ObjectPtr< VideoState_obj > __new(::String source, ::flixel::FlxState toTrans);
-		static ::hx::ObjectPtr< VideoState_obj > __alloc(::hx::Ctx *_hx_ctx,::String source, ::flixel::FlxState toTrans);
+		static ::hx::ObjectPtr< VideoState_obj > __new(::String source, ::flixel::FlxState toTrans,::hx::Null< int >  __o_frameSkipLimit,::hx::Null< bool >  __o_autopause);
+		static ::hx::ObjectPtr< VideoState_obj > __alloc(::hx::Ctx *_hx_ctx,::String source, ::flixel::FlxState toTrans,::hx::Null< int >  __o_frameSkipLimit,::hx::Null< bool >  __o_autopause);
 		static void * _hx_vtable;
 		static Dynamic __CreateEmpty();
 		static Dynamic __Create(::hx::DynamicArray inArgs);
@@ -71,6 +71,8 @@ class HXCPP_CLASS_ATTRIBUTES VideoState_obj : public  ::MusicBeatState_obj
 		::String defaultText;
 		bool doShit;
 		::String pauseText;
+		bool autoPause;
+		bool musicPaused;
 		void create();
 
 		void update(Float elapsed);

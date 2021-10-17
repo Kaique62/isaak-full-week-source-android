@@ -3427,7 +3427,7 @@ HXDLIN(2570)				::PlayState_obj::campaignScore = (::PlayState_obj::campaignScore
 HXLINE(2572)				::PlayState_obj::storyPlaylist->remove(::PlayState_obj::storyPlaylist->__get(0));
 HXLINE(2574)				if ((::PlayState_obj::storyPlaylist->length <= 0)) {
 HXLINE(2577)					{
-HXLINE(2577)						 ::flixel::FlxState nextState =  ::VideoState_obj::__alloc( HX_CTX ,HX_("assets/videos/basementoutro.webm",56,b7,5c,79), ::MainMenuState_obj::__alloc( HX_CTX ,null(),null()));
+HXLINE(2577)						 ::flixel::FlxState nextState =  ::VideoState_obj::__alloc( HX_CTX ,HX_("assets/videos/basementoutro.webm",56,b7,5c,79), ::MainMenuState_obj::__alloc( HX_CTX ,null(),null()),null(),null());
 HXDLIN(2577)						if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
 HXLINE(2577)							::flixel::FlxG_obj::game->_requestedState = nextState;
             						}

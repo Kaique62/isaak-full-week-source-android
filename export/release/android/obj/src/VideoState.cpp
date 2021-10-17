@@ -106,6 +106,9 @@
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
 #endif
+#ifndef INCLUDED_openfl_display_Bitmap
+#include <openfl/display/Bitmap.h>
+#endif
 #ifndef INCLUDED_openfl_display_DisplayObject
 #include <openfl/display/DisplayObject.h>
 #endif
@@ -127,29 +130,50 @@
 #ifndef INCLUDED_openfl_events_IEventDispatcher
 #include <openfl/events/IEventDispatcher.h>
 #endif
+#ifndef INCLUDED_openfl_media_SoundChannel
+#include <openfl/media/SoundChannel.h>
+#endif
 #ifndef INCLUDED_openfl_utils_Assets
 #include <openfl/utils/Assets.h>
 #endif
+#ifndef INCLUDED_webm_WebmPlayer
+#include <webm/WebmPlayer.h>
+#endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_db9755626f9b4c83_20_new,"VideoState","new",0xa15b6ba8,"VideoState.new","VideoState.hx",20,0x4a31c0c8)
-HX_LOCAL_STACK_FRAME(_hx_pos_db9755626f9b4c83_45_create,"VideoState","create",0x9d1208b4,"VideoState.create","VideoState.hx",45,0x4a31c0c8)
-HX_LOCAL_STACK_FRAME(_hx_pos_db9755626f9b4c83_114_update,"VideoState","update",0xa80827c1,"VideoState.update","VideoState.hx",114,0x4a31c0c8)
+HX_DEFINE_STACK_FRAME(_hx_pos_db9755626f9b4c83_22_new,"VideoState","new",0xa15b6ba8,"VideoState.new","VideoState.hx",22,0x4a31c0c8)
+HX_LOCAL_STACK_FRAME(_hx_pos_db9755626f9b4c83_55_create,"VideoState","create",0x9d1208b4,"VideoState.create","VideoState.hx",55,0x4a31c0c8)
+HX_LOCAL_STACK_FRAME(_hx_pos_db9755626f9b4c83_135_update,"VideoState","update",0xa80827c1,"VideoState.update","VideoState.hx",135,0x4a31c0c8)
 
-void VideoState_obj::__construct(::String source, ::flixel::FlxState toTrans){
-            	HX_STACKFRAME(&_hx_pos_db9755626f9b4c83_20_new)
-HXLINE(  34)		this->pauseText = HX_("Press P To Pause/Unpause",8c,59,2b,73);
-HXLINE(  33)		this->doShit = false;
-HXLINE(  32)		this->defaultText = HX_("",00,00,00,00);
-HXLINE(  31)		this->videoFrames = 0;
-HXLINE(  30)		this->prevSoundMultiplier = ((Float)1);
-HXLINE(  29)		this->soundMultiplier = ((Float)1);
-HXLINE(  28)		this->useSound = false;
-HXLINE(  26)		this->notDone = true;
-HXLINE(  25)		this->fuckingVolume = ((Float)1);
-HXLINE(  22)		this->leSource = HX_("",00,00,00,00);
-HXLINE(  38)		super::__construct(null(),null());
-HXLINE(  40)		this->leSource = source;
-HXLINE(  41)		this->transClass = toTrans;
+void VideoState_obj::__construct(::String source, ::flixel::FlxState toTrans,::hx::Null< int >  __o_frameSkipLimit,::hx::Null< bool >  __o_autopause){
+            		int frameSkipLimit = __o_frameSkipLimit.Default(-1);
+            		bool autopause = __o_autopause.Default(false);
+            	HX_STACKFRAME(&_hx_pos_db9755626f9b4c83_22_new)
+HXLINE(  38)		this->musicPaused = false;
+HXLINE(  37)		this->autoPause = false;
+HXLINE(  36)		this->pauseText = HX_("Press P To Pause/Unpause",8c,59,2b,73);
+HXLINE(  35)		this->doShit = false;
+HXLINE(  34)		this->defaultText = HX_("",00,00,00,00);
+HXLINE(  33)		this->videoFrames = 0;
+HXLINE(  32)		this->prevSoundMultiplier = ((Float)1);
+HXLINE(  31)		this->soundMultiplier = ((Float)1);
+HXLINE(  30)		this->useSound = false;
+HXLINE(  28)		this->notDone = true;
+HXLINE(  27)		this->fuckingVolume = ((Float)1);
+HXLINE(  24)		this->leSource = HX_("",00,00,00,00);
+HXLINE(  42)		super::__construct(null(),null());
+HXLINE(  44)		this->autoPause = autopause;
+HXLINE(  46)		this->leSource = source;
+HXLINE(  47)		this->transClass = toTrans;
+HXLINE(  48)		bool _hx_tmp;
+HXDLIN(  48)		if ((frameSkipLimit != -1)) {
+HXLINE(  48)			_hx_tmp = ::GlobalVideo_obj::isWebm;
+            		}
+            		else {
+HXLINE(  48)			_hx_tmp = false;
+            		}
+HXDLIN(  48)		if (_hx_tmp) {
+HXLINE(  50)			::webm::WebmPlayer_obj::SKIP_STEP_LIMIT = frameSkipLimit;
+            		}
             	}
 
 Dynamic VideoState_obj::__CreateEmpty() { return new VideoState_obj; }
@@ -159,7 +183,7 @@ void *VideoState_obj::_hx_vtable = 0;
 Dynamic VideoState_obj::__Create(::hx::DynamicArray inArgs)
 {
 	::hx::ObjectPtr< VideoState_obj > _hx_result = new VideoState_obj();
-	_hx_result->__construct(inArgs[0],inArgs[1]);
+	_hx_result->__construct(inArgs[0],inArgs[1],inArgs[2],inArgs[3]);
 	return _hx_result;
 }
 
@@ -184,180 +208,207 @@ bool VideoState_obj::_hx_isInstanceOf(int inClassId) {
 }
 
 void VideoState_obj::create(){
-            	HX_GC_STACKFRAME(&_hx_pos_db9755626f9b4c83_45_create)
-HXLINE(  46)		this->super::create();
-HXLINE(  47)		::flixel::FlxG_obj::autoPause = false;
-HXLINE(  48)		this->doShit = false;
-HXLINE(  50)		if (::GlobalVideo_obj::isWebm) {
-HXLINE(  52)			this->videoFrames = ( (int)(::Std_obj::parseInt(::openfl::utils::Assets_obj::getText(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".txt",02,3f,c0,1e))))) );
+            	HX_GC_STACKFRAME(&_hx_pos_db9755626f9b4c83_55_create)
+HXLINE(  56)		this->super::create();
+HXLINE(  57)		::flixel::FlxG_obj::autoPause = false;
+HXLINE(  58)		this->doShit = false;
+HXLINE(  60)		if (::GlobalVideo_obj::isWebm) {
+HXLINE(  62)			this->videoFrames = ( (int)(::Std_obj::parseInt(::openfl::utils::Assets_obj::getText(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".txt",02,3f,c0,1e))))) );
             		}
-HXLINE(  55)		this->fuckingVolume = ::flixel::FlxG_obj::sound->music->_volume;
-HXLINE(  56)		::flixel::FlxG_obj::sound->music->set_volume(( (Float)(0) ));
-HXLINE(  57)		bool isHTML = false;
-HXLINE(  61)		 ::flixel::FlxSprite bg =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null())->makeGraphic(::flixel::FlxG_obj::width,::flixel::FlxG_obj::height,-16777216,null(),null());
-HXLINE(  62)		this->add(bg);
-HXLINE(  64)		this->txt =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,0,0,::flixel::FlxG_obj::width,this->defaultText,32,null());
-HXLINE(  67)		this->txt->setFormat(HX_("VCR OSD Mono",be,44,e4,b8),32,-1,HX_("center",d5,25,db,05),null(),null(),null());
-HXLINE(  68)		this->txt->screenCenter(null());
-HXLINE(  69)		this->add(this->txt);
-HXLINE(  71)		if (::GlobalVideo_obj::isWebm) {
-HXLINE(  73)			bool _hx_tmp;
-HXDLIN(  73)			if (!(::openfl::utils::Assets_obj::exists(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".ogg",e1,64,bc,1e)),HX_("MUSIC",85,08,49,8e)))) {
-HXLINE(  73)				_hx_tmp = ::openfl::utils::Assets_obj::exists(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".ogg",e1,64,bc,1e)),HX_("SOUND",af,c4,ba,fe));
+HXLINE(  65)		this->fuckingVolume = ::flixel::FlxG_obj::sound->music->_volume;
+HXLINE(  66)		::flixel::FlxG_obj::sound->music->set_volume(( (Float)(0) ));
+HXLINE(  67)		bool isHTML = false;
+HXLINE(  71)		 ::flixel::FlxSprite bg =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null())->makeGraphic(::flixel::FlxG_obj::width,::flixel::FlxG_obj::height,-16777216,null(),null());
+HXLINE(  72)		this->add(bg);
+HXLINE(  73)		::String html5Text = HX_("You Are Not Using HTML5...\nThe Video Didnt Load!",bc,09,c4,ad);
+HXLINE(  74)		if (isHTML) {
+HXLINE(  76)			html5Text = HX_("You Are Using HTML5!",e0,34,bd,cc);
+            		}
+HXLINE(  78)		this->defaultText = (HX_("If Your On HTML5\nTap Anything...\nThe Bottom Text Indicates If You\nAre Using HTML5...\n\n",f5,5d,bf,01) + html5Text);
+HXLINE(  79)		this->txt =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,0,0,::flixel::FlxG_obj::width,this->defaultText,32,null());
+HXLINE(  82)		this->txt->setFormat(HX_("VCR OSD Mono",be,44,e4,b8),32,-1,HX_("center",d5,25,db,05),null(),null(),null());
+HXLINE(  83)		this->txt->screenCenter(null());
+HXLINE(  84)		this->add(this->txt);
+HXLINE(  86)		if (::GlobalVideo_obj::isWebm) {
+HXLINE(  88)			bool _hx_tmp;
+HXDLIN(  88)			if (!(::openfl::utils::Assets_obj::exists(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".ogg",e1,64,bc,1e)),HX_("MUSIC",85,08,49,8e)))) {
+HXLINE(  88)				_hx_tmp = ::openfl::utils::Assets_obj::exists(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".ogg",e1,64,bc,1e)),HX_("SOUND",af,c4,ba,fe));
             			}
             			else {
-HXLINE(  73)				_hx_tmp = true;
+HXLINE(  88)				_hx_tmp = true;
             			}
-HXDLIN(  73)			if (_hx_tmp) {
-HXLINE(  75)				this->useSound = true;
-HXLINE(  76)				 ::flixel::_hx_system::frontEnds::SoundFrontEnd _hx_tmp = ::flixel::FlxG_obj::sound;
-HXDLIN(  76)				this->vidSound = _hx_tmp->play(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".ogg",e1,64,bc,1e)),null(),null(),null(),null(),null());
+HXDLIN(  88)			if (_hx_tmp) {
+HXLINE(  90)				this->useSound = true;
+HXLINE(  91)				 ::flixel::_hx_system::frontEnds::SoundFrontEnd _hx_tmp = ::flixel::FlxG_obj::sound;
+HXDLIN(  91)				this->vidSound = _hx_tmp->play(::StringTools_obj::replace(this->leSource,HX_(".webm",87,0c,64,cb),HX_(".ogg",e1,64,bc,1e)),null(),null(),null(),null(),null());
             			}
             		}
-HXLINE(  80)		::GlobalVideo_obj::get()->__Field(HX_("source",db,b0,31,32),::hx::paccDynamic)(this->leSource);
-HXLINE(  81)		::GlobalVideo_obj::get()->__Field(HX_("clearPause",29,16,62,92),::hx::paccDynamic)();
-HXLINE(  82)		if (::GlobalVideo_obj::isWebm) {
-HXLINE(  84)			::GlobalVideo_obj::get()->__Field(HX_("updatePlayer",4a,92,7c,37),::hx::paccDynamic)();
+HXLINE(  95)		::GlobalVideo_obj::get()->__Field(HX_("source",db,b0,31,32),::hx::paccDynamic)(this->leSource);
+HXLINE(  96)		::GlobalVideo_obj::get()->__Field(HX_("clearPause",29,16,62,92),::hx::paccDynamic)();
+HXLINE(  97)		if (::GlobalVideo_obj::isWebm) {
+HXLINE(  99)			::GlobalVideo_obj::get()->__Field(HX_("updatePlayer",4a,92,7c,37),::hx::paccDynamic)();
             		}
-HXLINE(  86)		::GlobalVideo_obj::get()->__Field(HX_("show",fd,d4,52,4c),::hx::paccDynamic)();
-HXLINE(  87)		if (::GlobalVideo_obj::isWebm) {
-HXLINE(  89)			::GlobalVideo_obj::get()->__Field(HX_("restart",cf,c7,a5,6a),::hx::paccDynamic)();
+HXLINE( 101)		::GlobalVideo_obj::get()->__Field(HX_("show",fd,d4,52,4c),::hx::paccDynamic)();
+HXLINE( 102)		if (::GlobalVideo_obj::isWebm) {
+HXLINE( 104)			::GlobalVideo_obj::get()->__Field(HX_("restart",cf,c7,a5,6a),::hx::paccDynamic)();
             		}
             		else {
-HXLINE(  91)			::GlobalVideo_obj::get()->__Field(HX_("play",f4,2d,5a,4a),::hx::paccDynamic)();
+HXLINE( 106)			::GlobalVideo_obj::get()->__Field(HX_("play",f4,2d,5a,4a),::hx::paccDynamic)();
             		}
-HXLINE( 100)		this->vidSound->set_time((this->vidSound->_length * this->soundMultiplier));
-HXLINE( 108)		this->doShit = true;
+HXLINE( 115)		this->vidSound->set_time((this->vidSound->_length * this->soundMultiplier));
+HXLINE( 123)		this->doShit = true;
+HXLINE( 127)		bool _hx_tmp;
+HXDLIN( 127)		bool _hx_tmp1;
+HXDLIN( 127)		if (this->autoPause) {
+HXLINE( 127)			_hx_tmp1 = ::hx::IsNotNull( ::flixel::FlxG_obj::sound->music );
+            		}
+            		else {
+HXLINE( 127)			_hx_tmp1 = false;
+            		}
+HXDLIN( 127)		if (_hx_tmp1) {
+HXLINE( 127)			_hx_tmp = ::hx::IsNotNull( ::flixel::FlxG_obj::sound->music->_channel );
+            		}
+            		else {
+HXLINE( 127)			_hx_tmp = false;
+            		}
+HXDLIN( 127)		if (_hx_tmp) {
+HXLINE( 129)			this->musicPaused = true;
+HXLINE( 130)			::flixel::FlxG_obj::sound->music->pause();
+            		}
             	}
 
 
 void VideoState_obj::update(Float elapsed){
-            	HX_STACKFRAME(&_hx_pos_db9755626f9b4c83_114_update)
-HXLINE( 115)		this->super::update(elapsed);
-HXLINE( 117)		if (this->useSound) {
-HXLINE( 119)			bool wasFuckingHit = ( (bool)( ::Dynamic(::GlobalVideo_obj::get()->__Field(HX_("webm",59,5d,f5,4e),::hx::paccDynamic))->__Field(HX_("wasHitOnce",4b,03,49,ae),::hx::paccDynamic)) );
-HXLINE( 120)			this->soundMultiplier = (( (Float)( ::Dynamic(::GlobalVideo_obj::get()->__Field(HX_("webm",59,5d,f5,4e),::hx::paccDynamic))->__Field(HX_("renderedCount",5a,ef,d4,6f),::hx::paccDynamic)) ) / ( (Float)(this->videoFrames) ));
-HXLINE( 122)			if ((this->soundMultiplier > 1)) {
-HXLINE( 124)				this->soundMultiplier = ( (Float)(1) );
+            	HX_STACKFRAME(&_hx_pos_db9755626f9b4c83_135_update)
+HXLINE( 136)		this->super::update(elapsed);
+HXLINE( 138)		if (this->useSound) {
+HXLINE( 140)			bool wasFuckingHit = ( (bool)( ::Dynamic(::GlobalVideo_obj::get()->__Field(HX_("webm",59,5d,f5,4e),::hx::paccDynamic))->__Field(HX_("wasHitOnce",4b,03,49,ae),::hx::paccDynamic)) );
+HXLINE( 141)			this->soundMultiplier = (( (Float)( ::Dynamic(::GlobalVideo_obj::get()->__Field(HX_("webm",59,5d,f5,4e),::hx::paccDynamic))->__Field(HX_("renderedCount",5a,ef,d4,6f),::hx::paccDynamic)) ) / ( (Float)(this->videoFrames) ));
+HXLINE( 143)			if ((this->soundMultiplier > 1)) {
+HXLINE( 145)				this->soundMultiplier = ( (Float)(1) );
             			}
-HXLINE( 126)			if ((this->soundMultiplier < 0)) {
-HXLINE( 128)				this->soundMultiplier = ( (Float)(0) );
+HXLINE( 147)			if ((this->soundMultiplier < 0)) {
+HXLINE( 149)				this->soundMultiplier = ( (Float)(0) );
             			}
-HXLINE( 130)			if (this->doShit) {
-HXLINE( 132)				Float compareShit = ( (Float)(50) );
-HXLINE( 133)				bool _hx_tmp;
-HXDLIN( 133)				if (!((this->vidSound->_time >= ((this->vidSound->_length * this->soundMultiplier) + compareShit)))) {
-HXLINE( 133)					_hx_tmp = (this->vidSound->_time <= ((this->vidSound->_length * this->soundMultiplier) - compareShit));
+HXLINE( 151)			if (this->doShit) {
+HXLINE( 153)				Float compareShit = ( (Float)(50) );
+HXLINE( 154)				bool _hx_tmp;
+HXDLIN( 154)				if (!((this->vidSound->_time >= ((this->vidSound->_length * this->soundMultiplier) + compareShit)))) {
+HXLINE( 154)					_hx_tmp = (this->vidSound->_time <= ((this->vidSound->_length * this->soundMultiplier) - compareShit));
             				}
             				else {
-HXLINE( 133)					_hx_tmp = true;
+HXLINE( 154)					_hx_tmp = true;
             				}
-HXDLIN( 133)				if (_hx_tmp) {
-HXLINE( 134)					this->vidSound->set_time((this->vidSound->_length * this->soundMultiplier));
+HXDLIN( 154)				if (_hx_tmp) {
+HXLINE( 155)					this->vidSound->set_time((this->vidSound->_length * this->soundMultiplier));
             				}
             			}
-HXLINE( 136)			if (wasFuckingHit) {
-HXLINE( 138)				if ((this->soundMultiplier == 0)) {
-HXLINE( 140)					if ((this->prevSoundMultiplier != 0)) {
-HXLINE( 142)						this->vidSound->pause();
-HXLINE( 143)						this->vidSound->set_time(( (Float)(0) ));
+HXLINE( 157)			if (wasFuckingHit) {
+HXLINE( 159)				if ((this->soundMultiplier == 0)) {
+HXLINE( 161)					if ((this->prevSoundMultiplier != 0)) {
+HXLINE( 163)						this->vidSound->pause();
+HXLINE( 164)						this->vidSound->set_time(( (Float)(0) ));
             					}
             				}
             				else {
-HXLINE( 146)					if ((this->prevSoundMultiplier == 0)) {
-HXLINE( 148)						this->vidSound->resume();
-HXLINE( 149)						this->vidSound->set_time((this->vidSound->_length * this->soundMultiplier));
+HXLINE( 167)					if ((this->prevSoundMultiplier == 0)) {
+HXLINE( 169)						this->vidSound->resume();
+HXLINE( 170)						this->vidSound->set_time((this->vidSound->_length * this->soundMultiplier));
             					}
             				}
-HXLINE( 152)				this->prevSoundMultiplier = this->soundMultiplier;
+HXLINE( 173)				this->prevSoundMultiplier = this->soundMultiplier;
             			}
             		}
-HXLINE( 156)		if (this->notDone) {
-HXLINE( 158)			::flixel::FlxG_obj::sound->music->set_volume(( (Float)(0) ));
+HXLINE( 177)		if (this->notDone) {
+HXLINE( 179)			::flixel::FlxG_obj::sound->music->set_volume(( (Float)(0) ));
             		}
-HXLINE( 160)		::GlobalVideo_obj::get()->__Field(HX_("update",09,86,05,87),::hx::paccDynamic)(elapsed);
-HXLINE( 162)		if (::PlayerSettings_obj::player1->controls->_reset->check()) {
-HXLINE( 164)			::GlobalVideo_obj::get()->__Field(HX_("restart",cf,c7,a5,6a),::hx::paccDynamic)();
+HXLINE( 181)		::GlobalVideo_obj::get()->__Field(HX_("update",09,86,05,87),::hx::paccDynamic)(elapsed);
+HXLINE( 183)		if (::PlayerSettings_obj::player1->controls->_reset->check()) {
+HXLINE( 185)			::GlobalVideo_obj::get()->__Field(HX_("restart",cf,c7,a5,6a),::hx::paccDynamic)();
             		}
-HXLINE( 167)		 ::flixel::input::keyboard::FlxKeyList _this = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->justPressed) );
-HXDLIN( 167)		if (_this->keyManager->checkStatus(80,_this->status)) {
-HXLINE( 169)			this->txt->set_text(this->pauseText);
-HXLINE( 170)			::haxe::Log_obj::trace(HX_("PRESSED PAUSE",b8,0e,d3,d0),::hx::SourceInfo(HX_("source/VideoState.hx",54,69,0b,bf),170,HX_("VideoState",b6,b7,8a,56),HX_("update",09,86,05,87)));
-HXLINE( 171)			::GlobalVideo_obj::get()->__Field(HX_("togglePause",c2,8e,1e,e5),::hx::paccDynamic)();
-HXLINE( 172)			if (( (bool)(::GlobalVideo_obj::get()->__Field(HX_("paused",ae,40,84,ef),::hx::paccDynamic)) )) {
-HXLINE( 174)				::GlobalVideo_obj::get()->__Field(HX_("alpha",5e,a7,96,21),::hx::paccDynamic)();
+HXLINE( 188)		 ::flixel::input::keyboard::FlxKeyList _this = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->justPressed) );
+HXDLIN( 188)		if (_this->keyManager->checkStatus(80,_this->status)) {
+HXLINE( 190)			this->txt->set_text(this->pauseText);
+HXLINE( 191)			::haxe::Log_obj::trace(HX_("PRESSED PAUSE",b8,0e,d3,d0),::hx::SourceInfo(HX_("source/VideoState.hx",54,69,0b,bf),191,HX_("VideoState",b6,b7,8a,56),HX_("update",09,86,05,87)));
+HXLINE( 192)			::GlobalVideo_obj::get()->__Field(HX_("togglePause",c2,8e,1e,e5),::hx::paccDynamic)();
+HXLINE( 193)			if (( (bool)(::GlobalVideo_obj::get()->__Field(HX_("paused",ae,40,84,ef),::hx::paccDynamic)) )) {
+HXLINE( 195)				::GlobalVideo_obj::get()->__Field(HX_("alpha",5e,a7,96,21),::hx::paccDynamic)();
             			}
             			else {
-HXLINE( 176)				::GlobalVideo_obj::get()->__Field(HX_("unalpha",65,9e,27,1e),::hx::paccDynamic)();
-HXLINE( 177)				this->txt->set_text(this->defaultText);
+HXLINE( 197)				::GlobalVideo_obj::get()->__Field(HX_("unalpha",65,9e,27,1e),::hx::paccDynamic)();
+HXLINE( 198)				this->txt->set_text(this->defaultText);
             			}
             		}
-HXLINE( 181)		bool _hx_tmp;
-HXDLIN( 181)		bool _hx_tmp1;
-HXDLIN( 181)		if (!(::PlayerSettings_obj::player1->controls->_accept->check())) {
-HXLINE( 181)			_hx_tmp1 = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("ended",fa,48,7a,70),::hx::paccDynamic)) );
+HXLINE( 202)		bool _hx_tmp;
+HXDLIN( 202)		bool _hx_tmp1;
+HXDLIN( 202)		if (!(::PlayerSettings_obj::player1->controls->_accept->check())) {
+HXLINE( 202)			_hx_tmp1 = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("ended",fa,48,7a,70),::hx::paccDynamic)) );
             		}
             		else {
-HXLINE( 181)			_hx_tmp1 = true;
+HXLINE( 202)			_hx_tmp1 = true;
             		}
-HXDLIN( 181)		if (!(_hx_tmp1)) {
-HXLINE( 181)			_hx_tmp = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("stopped",0d,d2,61,43),::hx::paccDynamic)) );
-            		}
-            		else {
-HXLINE( 181)			_hx_tmp = true;
-            		}
-HXDLIN( 181)		if (_hx_tmp) {
-HXLINE( 183)			this->txt->set_visible(false);
-HXLINE( 184)			::GlobalVideo_obj::get()->__Field(HX_("hide",c2,34,0e,45),::hx::paccDynamic)();
-HXLINE( 185)			::GlobalVideo_obj::get()->__Field(HX_("stop",02,f0,5b,4c),::hx::paccDynamic)();
-            		}
-HXLINE( 188)		bool _hx_tmp2;
-HXDLIN( 188)		if (!(::PlayerSettings_obj::player1->controls->_accept->check())) {
-HXLINE( 188)			_hx_tmp2 = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("ended",fa,48,7a,70),::hx::paccDynamic)) );
+HXDLIN( 202)		if (!(_hx_tmp1)) {
+HXLINE( 202)			_hx_tmp = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("stopped",0d,d2,61,43),::hx::paccDynamic)) );
             		}
             		else {
-HXLINE( 188)			_hx_tmp2 = true;
+HXLINE( 202)			_hx_tmp = true;
             		}
-HXDLIN( 188)		if (_hx_tmp2) {
-HXLINE( 190)			this->notDone = false;
-HXLINE( 191)			::flixel::FlxG_obj::sound->music->set_volume(this->fuckingVolume);
-HXLINE( 192)			this->txt->set_text(this->pauseText);
-HXLINE( 193)			::flixel::FlxG_obj::autoPause = true;
-HXLINE( 194)			{
-HXLINE( 194)				 ::flixel::FlxState nextState = this->transClass;
-HXDLIN( 194)				if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE( 194)					::flixel::FlxG_obj::game->_requestedState = nextState;
+HXDLIN( 202)		if (_hx_tmp) {
+HXLINE( 204)			this->txt->set_visible(false);
+HXLINE( 205)			::GlobalVideo_obj::get()->__Field(HX_("hide",c2,34,0e,45),::hx::paccDynamic)();
+HXLINE( 206)			::GlobalVideo_obj::get()->__Field(HX_("stop",02,f0,5b,4c),::hx::paccDynamic)();
+            		}
+HXLINE( 209)		bool _hx_tmp2;
+HXDLIN( 209)		if (!(::PlayerSettings_obj::player1->controls->_accept->check())) {
+HXLINE( 209)			_hx_tmp2 = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("ended",fa,48,7a,70),::hx::paccDynamic)) );
+            		}
+            		else {
+HXLINE( 209)			_hx_tmp2 = true;
+            		}
+HXDLIN( 209)		if (_hx_tmp2) {
+HXLINE( 211)			this->notDone = false;
+HXLINE( 212)			::flixel::FlxG_obj::sound->music->set_volume(this->fuckingVolume);
+HXLINE( 213)			this->txt->set_text(this->pauseText);
+HXLINE( 214)			if (this->musicPaused) {
+HXLINE( 216)				this->musicPaused = false;
+HXLINE( 217)				::flixel::FlxG_obj::sound->music->resume();
+            			}
+HXLINE( 219)			::flixel::FlxG_obj::autoPause = true;
+HXLINE( 220)			{
+HXLINE( 220)				 ::flixel::FlxState nextState = this->transClass;
+HXDLIN( 220)				if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE( 220)					::flixel::FlxG_obj::game->_requestedState = nextState;
             				}
             			}
             		}
-HXLINE( 197)		bool _hx_tmp3;
-HXDLIN( 197)		if (!(( (bool)(::GlobalVideo_obj::get()->__Field(HX_("played",53,eb,b8,37),::hx::paccDynamic)) ))) {
-HXLINE( 197)			_hx_tmp3 = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("restarted",ee,f1,82,b5),::hx::paccDynamic)) );
+HXLINE( 223)		bool _hx_tmp3;
+HXDLIN( 223)		if (!(( (bool)(::GlobalVideo_obj::get()->__Field(HX_("played",53,eb,b8,37),::hx::paccDynamic)) ))) {
+HXLINE( 223)			_hx_tmp3 = ( (bool)(::GlobalVideo_obj::get()->__Field(HX_("restarted",ee,f1,82,b5),::hx::paccDynamic)) );
             		}
             		else {
-HXLINE( 197)			_hx_tmp3 = true;
+HXLINE( 223)			_hx_tmp3 = true;
             		}
-HXDLIN( 197)		if (_hx_tmp3) {
-HXLINE( 199)			::GlobalVideo_obj::get()->__Field(HX_("show",fd,d4,52,4c),::hx::paccDynamic)();
+HXDLIN( 223)		if (_hx_tmp3) {
+HXLINE( 225)			::GlobalVideo_obj::get()->__Field(HX_("show",fd,d4,52,4c),::hx::paccDynamic)();
             		}
-HXLINE( 202)		::GlobalVideo_obj::get()->__SetField(HX_("restarted",ee,f1,82,b5),false,::hx::paccDynamic);
-HXLINE( 203)		::GlobalVideo_obj::get()->__SetField(HX_("played",53,eb,b8,37),false,::hx::paccDynamic);
-HXLINE( 204)		::GlobalVideo_obj::get()->__SetField(HX_("stopped",0d,d2,61,43),false,::hx::paccDynamic);
-HXLINE( 205)		::GlobalVideo_obj::get()->__SetField(HX_("ended",fa,48,7a,70),false,::hx::paccDynamic);
+HXLINE( 228)		::GlobalVideo_obj::get()->__SetField(HX_("restarted",ee,f1,82,b5),false,::hx::paccDynamic);
+HXLINE( 229)		::GlobalVideo_obj::get()->__SetField(HX_("played",53,eb,b8,37),false,::hx::paccDynamic);
+HXLINE( 230)		::GlobalVideo_obj::get()->__SetField(HX_("stopped",0d,d2,61,43),false,::hx::paccDynamic);
+HXLINE( 231)		::GlobalVideo_obj::get()->__SetField(HX_("ended",fa,48,7a,70),false,::hx::paccDynamic);
             	}
 
 
 
-::hx::ObjectPtr< VideoState_obj > VideoState_obj::__new(::String source, ::flixel::FlxState toTrans) {
+::hx::ObjectPtr< VideoState_obj > VideoState_obj::__new(::String source, ::flixel::FlxState toTrans,::hx::Null< int >  __o_frameSkipLimit,::hx::Null< bool >  __o_autopause) {
 	::hx::ObjectPtr< VideoState_obj > __this = new VideoState_obj();
-	__this->__construct(source,toTrans);
+	__this->__construct(source,toTrans,__o_frameSkipLimit,__o_autopause);
 	return __this;
 }
 
-::hx::ObjectPtr< VideoState_obj > VideoState_obj::__alloc(::hx::Ctx *_hx_ctx,::String source, ::flixel::FlxState toTrans) {
+::hx::ObjectPtr< VideoState_obj > VideoState_obj::__alloc(::hx::Ctx *_hx_ctx,::String source, ::flixel::FlxState toTrans,::hx::Null< int >  __o_frameSkipLimit,::hx::Null< bool >  __o_autopause) {
 	VideoState_obj *__this = (VideoState_obj*)(::hx::Ctx::alloc(_hx_ctx, sizeof(VideoState_obj), true, "VideoState"));
 	*(void **)__this = VideoState_obj::_hx_vtable;
-	__this->__construct(source,toTrans);
+	__this->__construct(source,toTrans,__o_frameSkipLimit,__o_autopause);
 	return __this;
 }
 
@@ -381,6 +432,8 @@ void VideoState_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(defaultText,"defaultText");
 	HX_MARK_MEMBER_NAME(doShit,"doShit");
 	HX_MARK_MEMBER_NAME(pauseText,"pauseText");
+	HX_MARK_MEMBER_NAME(autoPause,"autoPause");
+	HX_MARK_MEMBER_NAME(musicPaused,"musicPaused");
 	 ::MusicBeatState_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
@@ -400,6 +453,8 @@ void VideoState_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(defaultText,"defaultText");
 	HX_VISIT_MEMBER_NAME(doShit,"doShit");
 	HX_VISIT_MEMBER_NAME(pauseText,"pauseText");
+	HX_VISIT_MEMBER_NAME(autoPause,"autoPause");
+	HX_VISIT_MEMBER_NAME(musicPaused,"musicPaused");
 	 ::MusicBeatState_obj::__Visit(HX_VISIT_ARG);
 }
 
@@ -424,6 +479,7 @@ void VideoState_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"pauseText") ) { return ::hx::Val( pauseText ); }
+		if (HX_FIELD_EQ(inName,"autoPause") ) { return ::hx::Val( autoPause ); }
 		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"transClass") ) { return ::hx::Val( transClass ); }
@@ -431,6 +487,7 @@ void VideoState_obj::__Visit(HX_VISIT_PARAMS)
 	case 11:
 		if (HX_FIELD_EQ(inName,"videoFrames") ) { return ::hx::Val( videoFrames ); }
 		if (HX_FIELD_EQ(inName,"defaultText") ) { return ::hx::Val( defaultText ); }
+		if (HX_FIELD_EQ(inName,"musicPaused") ) { return ::hx::Val( musicPaused ); }
 		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"fuckingVolume") ) { return ::hx::Val( fuckingVolume ); }
@@ -463,6 +520,7 @@ void VideoState_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"pauseText") ) { pauseText=inValue.Cast< ::String >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"autoPause") ) { autoPause=inValue.Cast< bool >(); return inValue; }
 		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"transClass") ) { transClass=inValue.Cast<  ::flixel::FlxState >(); return inValue; }
@@ -470,6 +528,7 @@ void VideoState_obj::__Visit(HX_VISIT_PARAMS)
 	case 11:
 		if (HX_FIELD_EQ(inName,"videoFrames") ) { videoFrames=inValue.Cast< int >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"defaultText") ) { defaultText=inValue.Cast< ::String >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"musicPaused") ) { musicPaused=inValue.Cast< bool >(); return inValue; }
 		break;
 	case 13:
 		if (HX_FIELD_EQ(inName,"fuckingVolume") ) { fuckingVolume=inValue.Cast< Float >(); return inValue; }
@@ -498,6 +557,8 @@ void VideoState_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_("defaultText",0e,c6,b8,1e));
 	outFields->push(HX_("doShit",eb,74,56,1c));
 	outFields->push(HX_("pauseText",c3,82,60,51));
+	outFields->push(HX_("autoPause",07,15,63,9b));
+	outFields->push(HX_("musicPaused",33,0f,c5,31));
 	super::__GetFields(outFields);
 };
 
@@ -516,6 +577,8 @@ static ::hx::StorageInfo VideoState_obj_sMemberStorageInfo[] = {
 	{::hx::fsString,(int)offsetof(VideoState_obj,defaultText),HX_("defaultText",0e,c6,b8,1e)},
 	{::hx::fsBool,(int)offsetof(VideoState_obj,doShit),HX_("doShit",eb,74,56,1c)},
 	{::hx::fsString,(int)offsetof(VideoState_obj,pauseText),HX_("pauseText",c3,82,60,51)},
+	{::hx::fsBool,(int)offsetof(VideoState_obj,autoPause),HX_("autoPause",07,15,63,9b)},
+	{::hx::fsBool,(int)offsetof(VideoState_obj,musicPaused),HX_("musicPaused",33,0f,c5,31)},
 	{ ::hx::fsUnknown, 0, null()}
 };
 static ::hx::StaticInfo *VideoState_obj_sStaticStorageInfo = 0;
@@ -535,6 +598,8 @@ static ::String VideoState_obj_sMemberFields[] = {
 	HX_("defaultText",0e,c6,b8,1e),
 	HX_("doShit",eb,74,56,1c),
 	HX_("pauseText",c3,82,60,51),
+	HX_("autoPause",07,15,63,9b),
+	HX_("musicPaused",33,0f,c5,31),
 	HX_("create",fc,66,0f,7c),
 	HX_("update",09,86,05,87),
 	::String(null()) };

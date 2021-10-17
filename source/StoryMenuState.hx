@@ -29,7 +29,7 @@ class StoryMenuState extends MusicBeatState
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true];
+	public static var weekUnlocked:Array<Bool> = [true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 
@@ -295,13 +295,11 @@ class StoryMenuState extends MusicBeatState
 			{
 			    if (PlayState.SONG.song.toLowerCase() == 'sacrificial')
 				{
-				    FlxG.switchState(new VideoState('assets/videos/basementintro.webm', new PlayState()));
-		            LoadingState.loadAndSwitchState(new PlayState(), true);
+				    LoadingState.loadAndSwitchState(new VideoState('assets/videos/basementintro.webm', new PlayState()));
 			    }
 				else if (PlayState.SONG.song.toLowerCase() == 'innermost-apocalypse')
 				{
-					FlxG.switchState(new VideoState('assets/videos/angeltransform.webm', new PlayState()));
-					LoadingState.loadAndSwitchState(new PlayState(), true);
+					LoadingState.loadAndSwitchState(new VideoState('assets/videos/angeltransform.webm', new PlayState()));
 				}
 				else
 				{

@@ -192,18 +192,18 @@ HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_209_update,"StoryMenuState","updat
 HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_194_update,"StoryMenuState","update",0xb708d8fa,"StoryMenuState.update","StoryMenuState.hx",194,0xd8e12181)
 HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_264_selectWeek,"StoryMenuState","selectWeek",0x4a36f481,"StoryMenuState.selectWeek","StoryMenuState.hx",264,0xd8e12181)
 HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_296_selectWeek,"StoryMenuState","selectWeek",0x4a36f481,"StoryMenuState.selectWeek","StoryMenuState.hx",296,0xd8e12181)
-HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_315_changeDifficulty,"StoryMenuState","changeDifficulty",0xd5c0d9fc,"StoryMenuState.changeDifficulty","StoryMenuState.hx",315,0xd8e12181)
-HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_355_changeWeek,"StoryMenuState","changeWeek",0xb5e4b4f5,"StoryMenuState.changeWeek","StoryMenuState.hx",355,0xd8e12181)
-HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_381_updateText,"StoryMenuState","updateText",0x9254d6c7,"StoryMenuState.updateText","StoryMenuState.hx",381,0xd8e12181)
+HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_313_changeDifficulty,"StoryMenuState","changeDifficulty",0xd5c0d9fc,"StoryMenuState.changeDifficulty","StoryMenuState.hx",313,0xd8e12181)
+HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_353_changeWeek,"StoryMenuState","changeWeek",0xb5e4b4f5,"StoryMenuState.changeWeek","StoryMenuState.hx",353,0xd8e12181)
+HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_379_updateText,"StoryMenuState","updateText",0x9254d6c7,"StoryMenuState.updateText","StoryMenuState.hx",379,0xd8e12181)
 HX_LOCAL_STACK_FRAME(_hx_pos_f93022dfbe651d27_32_boot,"StoryMenuState","boot",0xa88f88e3,"StoryMenuState.boot","StoryMenuState.hx",32,0xd8e12181)
 static const bool _hx_array_data_4260995d_14[] = {
-	1,
+	1,1,
 };
 
 void StoryMenuState_obj::__construct( ::flixel::addons::transition::TransitionData TransIn, ::flixel::addons::transition::TransitionData TransOut){
             	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_22_new)
-HXLINE( 352)		this->intendedScore = 0;
-HXLINE( 351)		this->lerpScore = 0;
+HXLINE( 350)		this->intendedScore = 0;
+HXLINE( 349)		this->lerpScore = 0;
 HXLINE( 260)		this->stopspamming = false;
 HXLINE( 259)		this->selectedWeek = false;
 HXLINE( 258)		this->movedBack = false;
@@ -446,38 +446,22 @@ HXDLIN( 264)		if (::StoryMenuState_obj::weekUnlocked->__get(this->curWeek)) {
             			void _hx_run( ::flixel::util::FlxTimer tmr){
             				HX_GC_STACKFRAME(&_hx_pos_f93022dfbe651d27_296_selectWeek)
 HXLINE( 296)				if ((( (::String)(::PlayState_obj::SONG->__Field(HX_("song",d5,23,58,4c),::hx::paccDynamic)) ).toLowerCase() == HX_("sacrificial",e0,93,7b,59))) {
-HXLINE( 298)					{
-HXLINE( 298)						 ::flixel::FlxState nextState =  ::VideoState_obj::__alloc( HX_CTX ,HX_("assets/videos/basementintro.webm",15,09,04,33), ::PlayState_obj::__alloc( HX_CTX ,null(),null()));
-HXDLIN( 298)						if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE( 298)							::flixel::FlxG_obj::game->_requestedState = nextState;
-            						}
-            					}
-HXLINE( 299)					{
-HXLINE( 299)						 ::flixel::FlxState nextState1 = ::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::PlayState_obj::__alloc( HX_CTX ,null(),null())) ),true);
-HXDLIN( 299)						if (::flixel::FlxG_obj::game->_state->switchTo(nextState1)) {
-HXLINE( 299)							::flixel::FlxG_obj::game->_requestedState = nextState1;
-            						}
+HXLINE( 298)					 ::flixel::FlxState nextState = ::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::VideoState_obj::__alloc( HX_CTX ,HX_("assets/videos/basementintro.webm",15,09,04,33), ::PlayState_obj::__alloc( HX_CTX ,null(),null()),null(),null())) ),false);
+HXDLIN( 298)					if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE( 298)						::flixel::FlxG_obj::game->_requestedState = nextState;
             					}
             				}
             				else {
-HXLINE( 301)					if ((( (::String)(::PlayState_obj::SONG->__Field(HX_("song",d5,23,58,4c),::hx::paccDynamic)) ).toLowerCase() == HX_("innermost-apocalypse",8b,b6,ca,5e))) {
-HXLINE( 303)						{
-HXLINE( 303)							 ::flixel::FlxState nextState =  ::VideoState_obj::__alloc( HX_CTX ,HX_("assets/videos/angeltransform.webm",31,6b,fa,01), ::PlayState_obj::__alloc( HX_CTX ,null(),null()));
-HXDLIN( 303)							if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE( 303)								::flixel::FlxG_obj::game->_requestedState = nextState;
-            							}
-            						}
-HXLINE( 304)						{
-HXLINE( 304)							 ::flixel::FlxState nextState1 = ::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::PlayState_obj::__alloc( HX_CTX ,null(),null())) ),true);
-HXDLIN( 304)							if (::flixel::FlxG_obj::game->_state->switchTo(nextState1)) {
-HXLINE( 304)								::flixel::FlxG_obj::game->_requestedState = nextState1;
-            							}
+HXLINE( 300)					if ((( (::String)(::PlayState_obj::SONG->__Field(HX_("song",d5,23,58,4c),::hx::paccDynamic)) ).toLowerCase() == HX_("innermost-apocalypse",8b,b6,ca,5e))) {
+HXLINE( 302)						 ::flixel::FlxState nextState = ::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::VideoState_obj::__alloc( HX_CTX ,HX_("assets/videos/angeltransform.webm",31,6b,fa,01), ::PlayState_obj::__alloc( HX_CTX ,null(),null()),null(),null())) ),false);
+HXDLIN( 302)						if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE( 302)							::flixel::FlxG_obj::game->_requestedState = nextState;
             						}
             					}
             					else {
-HXLINE( 308)						 ::flixel::FlxState nextState = ::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::PlayState_obj::__alloc( HX_CTX ,null(),null())) ),true);
-HXDLIN( 308)						if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
-HXLINE( 308)							::flixel::FlxG_obj::game->_requestedState = nextState;
+HXLINE( 306)						 ::flixel::FlxState nextState = ::LoadingState_obj::getNextState(( ( ::flixel::FlxState)( ::PlayState_obj::__alloc( HX_CTX ,null(),null())) ),true);
+HXDLIN( 306)						if (::flixel::FlxG_obj::game->_state->switchTo(nextState)) {
+HXLINE( 306)							::flixel::FlxG_obj::game->_requestedState = nextState;
             						}
             					}
             				}
@@ -519,38 +503,38 @@ HX_DEFINE_DYNAMIC_FUNC0(StoryMenuState_obj,selectWeek,(void))
 
 void StoryMenuState_obj::changeDifficulty(::hx::Null< int >  __o_change){
             		int change = __o_change.Default(0);
-            	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_315_changeDifficulty)
-HXLINE( 316)		 ::StoryMenuState _hx_tmp = ::hx::ObjectPtr<OBJ_>(this);
-HXDLIN( 316)		_hx_tmp->curDifficulty = (_hx_tmp->curDifficulty + change);
-HXLINE( 318)		if ((this->curDifficulty < 0)) {
-HXLINE( 319)			this->curDifficulty = 2;
+            	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_313_changeDifficulty)
+HXLINE( 314)		 ::StoryMenuState _hx_tmp = ::hx::ObjectPtr<OBJ_>(this);
+HXDLIN( 314)		_hx_tmp->curDifficulty = (_hx_tmp->curDifficulty + change);
+HXLINE( 316)		if ((this->curDifficulty < 0)) {
+HXLINE( 317)			this->curDifficulty = 2;
             		}
-HXLINE( 320)		if ((this->curDifficulty > 2)) {
-HXLINE( 321)			this->curDifficulty = 0;
+HXLINE( 318)		if ((this->curDifficulty > 2)) {
+HXLINE( 319)			this->curDifficulty = 0;
             		}
-HXLINE( 323)		this->sprDifficulty->offset->set_x(( (Float)(0) ));
-HXLINE( 325)		switch((int)(this->curDifficulty)){
+HXLINE( 321)		this->sprDifficulty->offset->set_x(( (Float)(0) ));
+HXLINE( 323)		switch((int)(this->curDifficulty)){
             			case (int)0: {
-HXLINE( 328)				this->sprDifficulty->animation->play(HX_("easy",02,8c,0c,43),null(),null(),null());
-HXLINE( 329)				this->sprDifficulty->offset->set_x(( (Float)(20) ));
+HXLINE( 326)				this->sprDifficulty->animation->play(HX_("easy",02,8c,0c,43),null(),null(),null());
+HXLINE( 327)				this->sprDifficulty->offset->set_x(( (Float)(20) ));
             			}
             			break;
             			case (int)1: {
-HXLINE( 331)				this->sprDifficulty->animation->play(HX_("normal",27,72,69,30),null(),null(),null());
-HXLINE( 332)				this->sprDifficulty->offset->set_x(( (Float)(70) ));
+HXLINE( 329)				this->sprDifficulty->animation->play(HX_("normal",27,72,69,30),null(),null(),null());
+HXLINE( 330)				this->sprDifficulty->offset->set_x(( (Float)(70) ));
             			}
             			break;
             			case (int)2: {
-HXLINE( 334)				this->sprDifficulty->animation->play(HX_("hard",eb,2e,08,45),null(),null(),null());
-HXLINE( 335)				this->sprDifficulty->offset->set_x(( (Float)(20) ));
+HXLINE( 332)				this->sprDifficulty->animation->play(HX_("hard",eb,2e,08,45),null(),null(),null());
+HXLINE( 333)				this->sprDifficulty->offset->set_x(( (Float)(20) ));
             			}
             			break;
             		}
-HXLINE( 338)		this->sprDifficulty->set_alpha(( (Float)(0) ));
-HXLINE( 341)		this->sprDifficulty->set_y((this->leftArrow->y - ( (Float)(15) )));
-HXLINE( 342)		this->intendedScore = ::Highscore_obj::getWeekScore(this->curWeek,this->curDifficulty);
-HXLINE( 345)		this->intendedScore = ::Highscore_obj::getWeekScore(this->curWeek,this->curDifficulty);
-HXLINE( 348)		::flixel::tweens::FlxTween_obj::tween(this->sprDifficulty, ::Dynamic(::hx::Anon_obj::Create(2)
+HXLINE( 336)		this->sprDifficulty->set_alpha(( (Float)(0) ));
+HXLINE( 339)		this->sprDifficulty->set_y((this->leftArrow->y - ( (Float)(15) )));
+HXLINE( 340)		this->intendedScore = ::Highscore_obj::getWeekScore(this->curWeek,this->curDifficulty);
+HXLINE( 343)		this->intendedScore = ::Highscore_obj::getWeekScore(this->curWeek,this->curDifficulty);
+HXLINE( 346)		::flixel::tweens::FlxTween_obj::tween(this->sprDifficulty, ::Dynamic(::hx::Anon_obj::Create(2)
             			->setFixed(0,HX_("y",79,00,00,00),(this->leftArrow->y + 15))
             			->setFixed(1,HX_("alpha",5e,a7,96,21),1)),((Float)0.07),null());
             	}
@@ -560,71 +544,71 @@ HX_DEFINE_DYNAMIC_FUNC1(StoryMenuState_obj,changeDifficulty,(void))
 
 void StoryMenuState_obj::changeWeek(::hx::Null< int >  __o_change){
             		int change = __o_change.Default(0);
-            	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_355_changeWeek)
-HXLINE( 356)		 ::StoryMenuState _hx_tmp = ::hx::ObjectPtr<OBJ_>(this);
-HXDLIN( 356)		_hx_tmp->curWeek = (_hx_tmp->curWeek + change);
-HXLINE( 358)		if ((this->curWeek >= this->weekData->get_length())) {
-HXLINE( 359)			this->curWeek = 0;
+            	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_353_changeWeek)
+HXLINE( 354)		 ::StoryMenuState _hx_tmp = ::hx::ObjectPtr<OBJ_>(this);
+HXDLIN( 354)		_hx_tmp->curWeek = (_hx_tmp->curWeek + change);
+HXLINE( 356)		if ((this->curWeek >= this->weekData->get_length())) {
+HXLINE( 357)			this->curWeek = 0;
             		}
-HXLINE( 360)		if ((this->curWeek < 0)) {
-HXLINE( 361)			this->curWeek = (this->weekData->get_length() - 1);
+HXLINE( 358)		if ((this->curWeek < 0)) {
+HXLINE( 359)			this->curWeek = (this->weekData->get_length() - 1);
             		}
-HXLINE( 363)		int bullShit = 0;
-HXLINE( 365)		{
-HXLINE( 365)			int _g = 0;
-HXDLIN( 365)			::Array< ::Dynamic> _g1 = this->grpWeekText->members;
-HXDLIN( 365)			while((_g < _g1->length)){
-HXLINE( 365)				 ::MenuItem item = _g1->__get(_g).StaticCast<  ::MenuItem >();
-HXDLIN( 365)				_g = (_g + 1);
-HXLINE( 367)				item->targetY = ( (Float)((bullShit - this->curWeek)) );
-HXLINE( 368)				bool _hx_tmp;
-HXDLIN( 368)				if ((item->targetY == 0)) {
-HXLINE( 368)					_hx_tmp = ::StoryMenuState_obj::weekUnlocked->__get(this->curWeek);
+HXLINE( 361)		int bullShit = 0;
+HXLINE( 363)		{
+HXLINE( 363)			int _g = 0;
+HXDLIN( 363)			::Array< ::Dynamic> _g1 = this->grpWeekText->members;
+HXDLIN( 363)			while((_g < _g1->length)){
+HXLINE( 363)				 ::MenuItem item = _g1->__get(_g).StaticCast<  ::MenuItem >();
+HXDLIN( 363)				_g = (_g + 1);
+HXLINE( 365)				item->targetY = ( (Float)((bullShit - this->curWeek)) );
+HXLINE( 366)				bool _hx_tmp;
+HXDLIN( 366)				if ((item->targetY == 0)) {
+HXLINE( 366)					_hx_tmp = ::StoryMenuState_obj::weekUnlocked->__get(this->curWeek);
             				}
             				else {
-HXLINE( 368)					_hx_tmp = false;
+HXLINE( 366)					_hx_tmp = false;
             				}
-HXDLIN( 368)				if (_hx_tmp) {
-HXLINE( 369)					item->set_alpha(( (Float)(1) ));
+HXDLIN( 366)				if (_hx_tmp) {
+HXLINE( 367)					item->set_alpha(( (Float)(1) ));
             				}
             				else {
-HXLINE( 371)					item->set_alpha(((Float)0.6));
+HXLINE( 369)					item->set_alpha(((Float)0.6));
             				}
-HXLINE( 372)				bullShit = (bullShit + 1);
+HXLINE( 370)				bullShit = (bullShit + 1);
             			}
             		}
-HXLINE( 375)		 ::flixel::_hx_system::frontEnds::SoundFrontEnd _hx_tmp1 = ::flixel::FlxG_obj::sound;
-HXDLIN( 375)		_hx_tmp1->play(::Paths_obj::sound(HX_("scrollMenu",4c,d4,18,06),null()),null(),null(),null(),null(),null());
-HXLINE( 377)		this->updateText();
+HXLINE( 373)		 ::flixel::_hx_system::frontEnds::SoundFrontEnd _hx_tmp1 = ::flixel::FlxG_obj::sound;
+HXDLIN( 373)		_hx_tmp1->play(::Paths_obj::sound(HX_("scrollMenu",4c,d4,18,06),null()),null(),null(),null(),null(),null());
+HXLINE( 375)		this->updateText();
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC1(StoryMenuState_obj,changeWeek,(void))
 
 void StoryMenuState_obj::updateText(){
-            	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_381_updateText)
-HXLINE( 382)		Dynamic( this->grpWeekCharacters->members->__get(0)).StaticCast<  ::MenuCharacter >()->setCharacter(( (::String)(this->weekCharacters->__get(this->curWeek)->__GetItem(0)) ));
-HXLINE( 383)		Dynamic( this->grpWeekCharacters->members->__get(1)).StaticCast<  ::MenuCharacter >()->setCharacter(( (::String)(this->weekCharacters->__get(this->curWeek)->__GetItem(1)) ));
-HXLINE( 384)		Dynamic( this->grpWeekCharacters->members->__get(2)).StaticCast<  ::MenuCharacter >()->setCharacter(( (::String)(this->weekCharacters->__get(this->curWeek)->__GetItem(2)) ));
-HXLINE( 386)		this->txtTracklist->set_text(HX_("Tracks\n",62,13,5a,55));
-HXLINE( 387)		::Array< ::String > stringThing = ( (::Array< ::String >)(this->weekData->__get(this->curWeek)) );
-HXLINE( 389)		{
-HXLINE( 389)			int _g = 0;
-HXDLIN( 389)			while((_g < stringThing->length)){
-HXLINE( 389)				::String i = stringThing->__get(_g);
-HXDLIN( 389)				_g = (_g + 1);
-HXLINE( 390)				 ::flixel::text::FlxText fh = this->txtTracklist;
-HXDLIN( 390)				fh->set_text((fh->text + (HX_("\n",0a,00,00,00) + i)));
+            	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_379_updateText)
+HXLINE( 380)		Dynamic( this->grpWeekCharacters->members->__get(0)).StaticCast<  ::MenuCharacter >()->setCharacter(( (::String)(this->weekCharacters->__get(this->curWeek)->__GetItem(0)) ));
+HXLINE( 381)		Dynamic( this->grpWeekCharacters->members->__get(1)).StaticCast<  ::MenuCharacter >()->setCharacter(( (::String)(this->weekCharacters->__get(this->curWeek)->__GetItem(1)) ));
+HXLINE( 382)		Dynamic( this->grpWeekCharacters->members->__get(2)).StaticCast<  ::MenuCharacter >()->setCharacter(( (::String)(this->weekCharacters->__get(this->curWeek)->__GetItem(2)) ));
+HXLINE( 384)		this->txtTracklist->set_text(HX_("Tracks\n",62,13,5a,55));
+HXLINE( 385)		::Array< ::String > stringThing = ( (::Array< ::String >)(this->weekData->__get(this->curWeek)) );
+HXLINE( 387)		{
+HXLINE( 387)			int _g = 0;
+HXDLIN( 387)			while((_g < stringThing->length)){
+HXLINE( 387)				::String i = stringThing->__get(_g);
+HXDLIN( 387)				_g = (_g + 1);
+HXLINE( 388)				 ::flixel::text::FlxText fh = this->txtTracklist;
+HXDLIN( 388)				fh->set_text((fh->text + (HX_("\n",0a,00,00,00) + i)));
             			}
             		}
-HXLINE( 392)		 ::flixel::text::FlxText _hx_tmp = this->txtTracklist;
-HXDLIN( 392)		_hx_tmp->set_text(this->txtTracklist->text.toUpperCase());
-HXLINE( 394)		this->txtTracklist->screenCenter(::flixel::util::FlxAxes_obj::X_dyn());
-HXLINE( 395)		 ::flixel::text::FlxText fh = this->txtTracklist;
-HXDLIN( 395)		fh->set_x((fh->x - (( (Float)(::flixel::FlxG_obj::width) ) * ((Float)0.35))));
-HXLINE( 397)		 ::flixel::text::FlxText fh1 = this->txtTracklist;
-HXDLIN( 397)		fh1->set_text((fh1->text + HX_("\n",0a,00,00,00)));
-HXLINE( 400)		this->intendedScore = ::Highscore_obj::getWeekScore(this->curWeek,this->curDifficulty);
+HXLINE( 390)		 ::flixel::text::FlxText _hx_tmp = this->txtTracklist;
+HXDLIN( 390)		_hx_tmp->set_text(this->txtTracklist->text.toUpperCase());
+HXLINE( 392)		this->txtTracklist->screenCenter(::flixel::util::FlxAxes_obj::X_dyn());
+HXLINE( 393)		 ::flixel::text::FlxText fh = this->txtTracklist;
+HXDLIN( 393)		fh->set_x((fh->x - (( (Float)(::flixel::FlxG_obj::width) ) * ((Float)0.35))));
+HXLINE( 395)		 ::flixel::text::FlxText fh1 = this->txtTracklist;
+HXDLIN( 395)		fh1->set_text((fh1->text + HX_("\n",0a,00,00,00)));
+HXLINE( 398)		this->intendedScore = ::Highscore_obj::getWeekScore(this->curWeek,this->curDifficulty);
             	}
 
 
@@ -955,7 +939,7 @@ void StoryMenuState_obj::__boot()
 {
 {
             	HX_STACKFRAME(&_hx_pos_f93022dfbe651d27_32_boot)
-HXDLIN(  32)		weekUnlocked = ::Array_obj< bool >::fromData( _hx_array_data_4260995d_14,1);
+HXDLIN(  32)		weekUnlocked = ::Array_obj< bool >::fromData( _hx_array_data_4260995d_14,2);
             	}
 }
 
